@@ -94,14 +94,35 @@ This repository contains a serverless, scalable system for automated customer fe
 6. Short feedback (runs all tools, though some results may be trivial/empty).
 7. Long feedback (runs all tools, gets richer, more meaningful LLM responses).
    
-"Agent uses an LLM (Groq) to interpret instructions and select tools:
+## NOTE: "Agent uses an LLM (Groq) to interpret instructions and select tools:
 Even if instructions aren’t present, your fallback ensures all tools are run, which is acceptable per your requirements.
 Default tool execution:
 If no instructions are given or LLM selection fails, all tools execute.
 Robust error handling:
 If the LLM call fails or the response is malformed, the workflow continues without crashing."
 
+## Feedback Submission (POST /feedback)
 
+When a client submits feedback via the POST API, the server:
+
+1. Parses and validates the JSON payload.
+2. Enqueues the feedback into an AWS SQS queue using the `SendMessage` API for asynchronous processing.
+3. Responds immediately to the client, while a background Lambda or service processes the message from SQS.
+
+**SQS Message Example:**
+```json
+{
+  "feedback_id": "abc123",
+  "customer_name": "Jane Doe",
+  "feedback_text": "Great service, fast delivery!",
+  "timestamp": "2025-05-28T18:07:00Z"
+}
+```
+
+**Reliability:**
+- Feedback is never lost if the backend is busy, since SQS buffers the messages.
+- All API calls to SQS are authenticated via IAM.
+- Failed messages are moved to a DLQ for investigation.
 
 ## Acknowledgements
 
