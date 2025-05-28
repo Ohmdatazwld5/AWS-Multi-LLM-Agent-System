@@ -1,0 +1,133 @@
+1. OUTPUT WITH INSTRUCTIONS FROM USER:
+
+(GROQ API was failed because it was a free API and I made a lot of requests which exceeds the rate limit)
+
+Status: Succeeded
+Test Event Name: TEST06
+
+Response:
+{
+  "statusCode": 200
+}
+
+Function Logs:
+all failed, defaulting to all tools: 404 Client Error: Not Found for url: https://api.groq.com/v1/chat/completions
+Tools selected for 122: ['sentiment_analysis', 'topic_categorization', 'keyword_extraction', 'summarization']
+Groq LLM response (sentiment): {
+"sentiment": "positive",
+"confidence": 0.9
+}
+Sentiment result for 122: {'sentiment': 'positive', 'confidence': 0.9}
+Groq LLM response (topic): {"primary_topic": "Product Quality",
+"secondary_topics": ["Delivery"],
+"confidence": 0.8
+}
+Topic categorization result for 122: {'primary_topic': 'Product Quality', 'secondary_topics': ['Delivery'], 'confidence': 0.8}
+Groq LLM response (keywords): {
+"keywords": [
+{"keyword": "delivery", "relevance": 0.7},
+{"keyword": "packaging", "relevance": 0.6},
+{"keyword": "product", "relevance": 0.8},
+{"keyword": "quality", "relevance": 0.9}
+]
+}
+Keyword extraction result for 122: {'keywords': [{'keyword': 'delivery', 'relevance': 0.7}, {'keyword': 'packaging', 'relevance': 0.6}, {'keyword': 'product', 'relevance': 0.8}, {'keyword': 'quality', 'relevance': 0.9}]}
+Groq LLM response (summary): {
+"summary": "Positive feedback on delivery and product quality",
+"action_items": []
+}
+Summarization result for 122: {'summary': 'Positive feedback on delivery and product quality', 'action_items': []}
+Full results for 122: {'sentiment': {'sentiment': 'positive', 'confidence': 0.9}, 'topics': {'primary_topic': 'Product Quality', 'secondary_topics': ['Delivery'], 'confidence': 0.8}, 'keywords': {'keywords': [{'keyword': 'delivery', 'relevance': 0.7}, {'keyword': 'packaging', 'relevance': 0.6}, {'keyword': 'product', 'relevance': 0.8}, {'keyword': 'quality', 'relevance': 0.9}]}, 'summary': {'summary': 'Positive feedback on delivery and product quality', 'action_items': []}}
+Results for 122 stored successfully in DynamoDB.
+Processing feedback_id: 233
+Groq API call failed, defaulting to all tools: 404 Client Error: Not Found for url: https://api.groq.com/v1/chat/completions
+Tools selected for 233: ['sentiment_analysis', 'topic_categorization', 'keyword_extraction', 'summarization']
+Groq LLM response (sentiment): {
+"sentiment": "negative",
+"confidence": 0.9
+}
+Sentiment result for 233: {'sentiment': 'negative', 'confidence': 0.9}
+Groq LLM response (topic): {"primary_topic": "Pricing",
+"secondary_topics": ["Features"],
+"confidence": 0.9
+}
+Topic categorization result for 233: {'primary_topic': 'Pricing', 'secondary_topics': ['Features'], 'confidence': 0.9}
+Groq LLM response (keywords): {
+"keywords": [
+{"keyword": "product", "relevance": 0.8},
+{"keyword": "features", "relevance": 0.7},
+{"keyword": "overpriced", "relevance": 0.9},
+{"keyword": "competitors", "relevance": 0.6}
+]
+}
+Keyword extraction result for 233: {'keywords': [{'keyword': 'product', 'relevance': 0.8}, {'keyword': 'features', 'relevance': 0.7}, {'keyword': 'overpriced', 'relevance': 0.9}, {'keyword': 'competitors', 'relevance': 0.6}]}
+Groq LLM response (summary): {
+"summary": "Product features are lacking and overpriced compared to competitors.",
+"action_items": ["Enhance product features", "Re-evaluate pricing strategy"]
+}
+Summarization result for 233: {'summary': 'Product features are lacking and overpriced compared to competitors.', 'action_items': ['Enhance product features', 'Re-evaluate pricing strategy']}
+Full results for 233: {'sentiment': {'sentiment': 'negative', 'confidence': 0.9}, 'topics': {'primary_topic': 'Pricing', 'secondary_topics': ['Features'], 'confidence': 0.9}, 'keywords': {'keywords': [{'keyword': 'product', 'relevance': 0.8}, {'keyword': 'features', 'relevance': 0.7}, {'keyword': 'overpriced', 'relevance': 0.9}, {'keyword': 'competitors', 'relevance': 0.6}]}, 'summary': {'summary': 'Product features are lacking and overpriced compared to competitors.', 'action_items': ['Enhance product features', 'Re-evaluate pricing strategy']}}
+Results for 233 stored successfully in DynamoDB.
+
+
+
+2. AGENT OUTPUT WITHOUT INSTRUCTIONS:
+
+START RequestId: b4fa33f6-6bfc-459e-a1ca-ee0aef0c26ce Version: $LATEST
+Processing feedback_id: 801
+Tools selected for 801: ['sentiment_analysis', 'topic_categorization', 'keyword_extraction', 'summarization']
+Groq LLM response (sentiment): {
+"sentiment": "neutral",
+"confidence": 0.7
+}
+Sentiment result for 801: {'sentiment': 'neutral', 'confidence': 0.7}
+Groq LLM response (topic): {"primary_topic": "Support",
+"secondary_topics": ["Delivery"],
+"confidence": 0.8
+}
+Topic categorization result for 801: {'primary_topic': 'Support', 'secondary_topics': ['Delivery'], 'confidence': 0.8}
+Groq LLM response (keywords): {
+"keywords": [
+{"keyword": "checkout", "relevance": 0.8},
+{"keyword": "customer", "relevance": 0.6},
+{"keyword": "support", "relevance": 0.6}
+]
+}
+Keyword extraction result for 801: {'keywords': [{'keyword': 'checkout', 'relevance': 0.8}, {'keyword': 'customer', 'relevance': 0.6}, {'keyword': 'support', 'relevance': 0.6}]}
+Groq LLM response (summary): {
+"summary": "Checkout process was confusing but customer support was helpful",
+"action_items": ["Simplify checkout process", "Continue to provide excellent customer support"]
+}
+Summarization result for 801: {'summary': 'Checkout process was confusing but customer support was helpful', 'action_items': ['Simplify checkout process', 'Continue to provide excellent customer support']}
+Full results for 801: {'sentiment': {'sentiment': 'neutral', 'confidence': 0.7}, 'topics': {'primary_topic': 'Support', 'secondary_topics': ['Delivery'], 'confidence': 0.8}, 'keywords': {'keywords': [{'keyword': 'checkout', 'relevance': 0.8}, {'keyword': 'customer', 'relevance': 0.6}, {'keyword': 'support', 'relevance': 0.6}]}, 'summary': {'summary': 'Checkout process was confusing but customer support was helpful', 'action_items': ['Simplify checkout process', 'Continue to provide excellent customer support']}}
+Results for 801 stored successfully in DynamoDB.
+
+3. OUTPUT WITHOUT INSTRUCTIONS(EMPTY STRINGS) FROM USER:
+
+OUTPUT: START RequestId: cd7a23f1-9e32-43f1-a312-454e985bc379 Version: $LATEST
+Processing feedback_id: 781
+Tools selected for 781: ['sentiment_analysis', 'topic_categorization', 'keyword_extraction', 'summarization']
+Groq LLM response (sentiment): {
+"sentiment": "neutral",
+"confidence": 0.7
+}
+Sentiment result for 781: {'sentiment': 'neutral', 'confidence': 0.7}
+Groq LLM response (topic): {"primary_topic": "Support", "secondary_topics": ["Other"], "confidence": 0.8}
+Topic categorization result for 781: {'primary_topic': 'Support', 'secondary_topics': ['Other'], 'confidence': 0.8}
+Groq LLM response (keywords): {
+"keywords": [
+{"keyword": "website", "relevance": 0.8},
+{"keyword": "navigate", "relevance": 0.6},
+{"keyword": "trouble", "relevance": 0.7},
+{"keyword": "discount", "relevance": 0.9},
+{"keyword": "code", "relevance": 0.8}
+]
+}
+Keyword extraction result for 781: {'keywords': [{'keyword': 'website', 'relevance': 0.8}, {'keyword': 'navigate', 'relevance': 0.6}, {'keyword': 'trouble', 'relevance': 0.7}, {'keyword': 'discount', 'relevance': 0.9}, {'keyword': 'code', 'relevance': 0.8}]}
+Groq LLM response (summary): {
+"summary": "Navigation was easy, but applying a discount code was problematic",
+"action_items": ["Fix discount code application process"] 
+}
+Summarization result for 781: {'summary': 'Navigation was easy, but applying a discount code was problematic', 'action_items': ['Fix discount code application process']}
+Full results for 781: {'sentiment': {'sentiment': 'neutral', 'confidence': 0.7}, 'topics': {'primary_topic': 'Support', 'secondary_topics': ['Other'], 'confidence': 0.8}, 'keywords': {'keywords': [{'keyword': 'website', 'relevance': 0.8}, {'keyword': 'navigate', 'relevance': 0.6}, {'keyword': 'trouble', 'relevance': 0.7}, {'keyword': 'discount', 'relevance': 0.9}, {'keyword': 'code', 'relevance': 0.8}]}, 'summary': {'summary': 'Navigation was easy, but applying a discount code was problematic', 'action_items': ['Fix discount code application process']}}
+Results for 781 stored successfully in DynamoDB.
