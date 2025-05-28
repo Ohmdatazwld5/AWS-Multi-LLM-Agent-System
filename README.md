@@ -85,6 +85,24 @@ This repository contains a serverless, scalable system for automated customer fe
 
 ---
 
+## Strengths in the Current System
+1. Handles missing/empty instructions gracefully (always runs default tools).
+2. No unnecessary LLM/Groq API calls when instructions are missing/empty.
+3. Results are structured and stored in DynamoDB.
+4. Logging is present for processing and error tracking.
+5. Modular tool-running logic (sentiment, topic, etc.).
+6. Short feedback (runs all tools, though some results may be trivial/empty).
+7. Long feedback (runs all tools, gets richer, more meaningful LLM responses).
+   
+"Agent uses an LLM (Groq) to interpret instructions and select tools:
+Even if instructions aren’t present, your fallback ensures all tools are run, which is acceptable per your requirements.
+Default tool execution:
+If no instructions are given or LLM selection fails, all tools execute.
+Robust error handling:
+If the LLM call fails or the response is malformed, the workflow continues without crashing."
+
+
+
 ## Acknowledgements
 
 - AWS Lambda, SQS, DynamoDB
