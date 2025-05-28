@@ -1,0 +1,36 @@
+1. With Instructions:
+
+{
+  "Records": [
+    {
+      "body": "{\"feedback_id\": \"001\", \"customer_name\": \"Alice Smith\", \"feedback_text\": \"The checkout process was confusing, but customer support resolved my issue quickly.\", \"timestamp\": \"2025-05-20T14:00:00Z\", \"instructions\": \"Analyze sentiment, categorize topic, extract keywords with context, and summarize with recommendations.\"}"
+    },
+    {
+      "body": "{\"feedback_id\": \"002\", \"customer_name\": \"Bob Lee\", \"feedback_text\": \"Delivery was fast and the packaging was secure. Impressed with the product quality.\", \"timestamp\": \"2025-05-21T09:15:00Z\", \"instructions\": \"Run all available tools and provide actionable feedback.\"}"
+    },
+    {
+      "body": "{\"feedback_id\": \"003\", \"customer_name\": \"Cathy Jones\", \"feedback_text\": \"The product features are lacking, and it is overpriced compared to competitors.\", \"timestamp\": \"2025-05-22T11:45:00Z\", \"instructions\": \"Full analysis: sentiment, topic, keyword relevance, and summarize improvements.\"}"
+    }
+  ]
+}
+
+
+2. Blank Instructions Case:
+
+{
+  "Records": [
+    {
+      "body": "{\"feedback_id\": \"901\", \"customer_name\": \"Derek\", \"feedback_text\": \"Website was easy to navigate, but I had trouble applying a discount code.\", \"timestamp\": \"2025-05-28T12:00:00Z\", \"instructions\": \"\"}"
+    }
+  ]
+}
+
+3. Strict No Instructions Case:
+
+{
+  "Records": [
+    {
+      "body": "{\"feedback_id\": \"801\", \"customer_name\": \"Alice Smith\", \"feedback_text\": \"The checkout process was confusing, but customer support resolved my issue quickly.\", \"timestamp\": \"2025-05-20T14:00:00Z\"}"
+    }
+  ]
+}
